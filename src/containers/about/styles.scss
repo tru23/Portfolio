@@ -39,12 +39,12 @@
                 font-size: 18px;
                 font-weight: 500;
                 letter-spacing: 0.5px;
-                border-bottom: 2px solid var(--yellow-theme-main-color);
+                
                 position: relative;
                 display: inline-block;
                 margin-right: 16px;
                 padding-bottom: 5px;
-                color: var(--yellow-theme-sub-text-color);
+                color: var(--yellow-theme-main-color);
             }
 
             span.value {
