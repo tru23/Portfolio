@@ -1,0 +1,109 @@
+.navbar {
+    background-color: var(--yellow-theme-nav-background-color);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure navbar is above other content */
+  
+    .navbar_container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%; /* Use height 100% for consistent sizing */
+      padding: 0px 20px;
+      justify-content: space-between; /* Ensure logo and menu are at opposite ends */
+    }
+  
+    .navbar_container_logo {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center; /* Center vertically */
+      height: 100%; /* Ensure logo container takes full height */
+      img {
+        height: 60px;
+        width: auto;
+        cursor: pointer;
+      }
+    }
+  
+    .navbar_container_menu {
+      display: flex;
+      align-items: center; /* Center vertically */
+      list-style: none;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+  
+      .navbar_container_menu_item {
+        margin-left: 20px; /* Adjust spacing between menu items */
+        font-size: 1.6rem;
+  
+        &::after {
+          content: '';
+          display: block;
+          height: 3px;
+          width: 0;
+          background: transparent;
+          transition: all 0.5s ease;
+        }
+  
+        &:hover::after {
+          width: 100%;
+          background: var(--yellow-theme-main-color);
+        }
+  
+        &_links {
+          color: var(--yellow-theme-main-color);
+          text-decoration: none;
+          padding: 0.5rem;
+        }
+      }
+    }
+  
+    .nav_icon {
+      display: none;
+    }
+  
+    @media only screen and (max-width: 768px) {
+      .navbar_container_menu {
+        display: none; /* Hide menu items by default */
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--yellow-theme-nav-background-color);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        flex-direction: column;
+        align-items: center;
+        z-index: 999; /* Ensure menu is above other content */
+        padding: 20px 0; /* Add padding to the container for spacing */
+  
+        .navbar_container_menu_item {
+          margin: 10px 0; /* Add margin between menu items */
+        }
+      }
+  
+      .navbar_container_menu.active {
+        display: flex; /* Show menu when active */
+        opacity: 1;
+        padding: 20px;
+      }
+  
+      .nav_icon {
+        display: block;
+        cursor: pointer;
+        color: var(--yellow-theme-main-color);
+        padding: 20px; /* Increase touch area for easier clicking */
+        position: absolute;
+        top: 20px; /* Adjust position as needed */
+        right: 5px; /* Adjust position as needed */
+        z-index: 1001; /* Ensure icon is above other content */
+      }
+    }
+  }
+  
